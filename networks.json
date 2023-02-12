@@ -1,0 +1,8 @@
+{
+  "goerli": {
+    "MessageStore": {
+      "address": "0xA3147cb22CC37Ec47Ca2Af65b9AbD484fF2ee0c1",
+      "startBlock": 8479490
+    }
+  }
+}

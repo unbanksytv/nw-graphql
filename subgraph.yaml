@@ -1,0 +1,27 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: MessageStore
+    network: goerli
+    source:
+      address: "0xA3147cb22CC37Ec47Ca2Af65b9AbD484fF2ee0c1"
+      abi: MessageStore
+      startBlock: 8479490
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Buy
+        - OwnershipTransferred
+      abis:
+        - name: MessageStore
+          file: ./abis/MessageStore.json
+      eventHandlers:
+        - event: Buy(indexed address,indexed address,uint256,uint256)
+          handler: handleBuy
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/message-store.ts
